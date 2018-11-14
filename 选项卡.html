@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style type="text/css">
+        body, p, ul, li, ol, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        .box{
+            position: relative;
+            width: 600px;
+            margin: 50px auto 0;
+            border: 1px solid black;
+        }
+        .tab{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .tab li{
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            background-color: rgb(245, 7, 43);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .btn{
+            display: none;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        .btn li{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            background-color: rgb(245, 7, 43);
+            color: #ffffff;
+            text-align: center;
+        }
+        img{
+            display: none;
+            height: 600px;
+            margin-left: 112px;
+        }
+        .show{
+            display: block;
+        }
+        li.on{
+            background-color: rgb(92, 46, 186);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="tab">
+            <ul>
+                <li class="on">选项卡1</li>
+                <li>选项卡2</li>
+                <li>选项卡3</li>
+                <li>选项卡4</li>
+            </ul>
+        </div>
+        <div>
+            <div class="btn">
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </div>
+            <div class="pic">
+                <ul>
+                    <li><img src="img/1.jpg" alt="" class="show"></li>
+                    <li><img src="img/3.jpg" alt=""></li>
+                    <li><img src="img/4.jpg" alt=""></li>
+                    <li><img src="img/5.jpg" alt=""></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div class="btn">
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+            <div class="pic">
+                <ul>
+                    <li><img src="img/038e21a55de979f00000171404c12d1.jpg" alt=""></li>
+                    <li><img src="img/3.jpg" alt=""></li>
+                    <li><img src="img/4.jpg" alt=""></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div class="btn">
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+            <div class="pic">
+                <ul>
+                    <li><img src="img/aec379310a55b3199f70cd0e4ea98226cffc173b.jpg" alt=""></li>
+                    <li><img src="img/3.jpg" alt=""></li>
+                    <li><img src="img/4.jpg" alt=""></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div class="btn">
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+            <div class="pic">
+                <ul>
+                    <li><img src="img/timg%20(2).jpg" alt="" ></li>
+                    <li><img src="img/3.jpg" alt=""></li>
+                    <li><img src="img/4.jpg" alt=""></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let tab = document.getElementsByClassName("tab")[0];
+    let litab = tab.getElementsByTagName("li");
+    let btn = document.getElementsByClassName("btn");
+    let pic = document.getElementsByClassName("pic");
+
+    let num = 0;
+    for (let i = 0 ; i < litab.length ; i++){
+        litab[i].onmouseenter = function () {
+            litab[num].classList.remove("on");
+            pic[num].classList.remove("show");
+            btn[num].classList.remove("show");
+            num = i;
+            this.classList.add("on");
+            pic[i].classList.add("show");
+            btn[num].classList.add("show");
+        }
+    }
+
+
+</script>
+</html>

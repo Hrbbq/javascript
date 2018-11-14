@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <link rel="stylesheet" href="css/common.css" />
+    <title>相册</title>
+    <style type="text/css">
+        #box{
+            position: relative;
+            width: 600px;
+            margin: 50px auto 0;
+        }
+        span{
+            display: inline-block;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            background-color: yellow;
+            cursor: pointer;
+        }
+        span.col{
+            background-color: red;
+        }
+        .banner{
+            height: 500px;
+        }
+        
+        .on{
+            display: block;
+        }
+        img{
+            display: none;
+            margin-left: 112px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id = "box">
+        <div class="btn">
+            <span class="col">循环</span>
+            <span>单边</span>
+        </div>
+        <div class="banner">
+            <ul>
+                <li><img src="img/1.jpg" alt="" class="on"></li>
+                <li><img src="img/3.jpg" alt="" ></li>
+                <li><img src="img/4.jpg" alt="" ></li>
+                <li><img src="img/5.jpg" alt="" ></li>
+                <li><img src="img/6.jpg" alt="" ></li>
+                <li><img src="img/7.jpg" alt="" ></li>
+                <li><img src="img/8.jpg" alt="" ></li>
+                <li><img src="img/9.jpg" alt="" ></li>
+            </ul>
+            <button>左</button>
+            <button>右</button>
+        </div>
+    </div>
+    <script>
+        let span =document.getElementsByTagName("span");
+        let btn = document.getElementsByTagName("button");
+        let img = document.getElementsByTagName("img");
+        let num = 0;
+            span.idx = 0;
+            for (let i = 0 ; i < span.length; i++) {
+                span[i].onclick = () => {
+                    span[span.idx].className = "";
+                    span.idx = i;
+                    span[i].className = "col"
+                }
+            }
+            btn[1].onclick = () => {
+                img[num].className = "";
+                num++;
+                if (num >= img.length){
+                    num = span.idx === 0 ? 0 : img.length - 1
+                }
+                img[num].className = "on";
+            };
+            btn[0].onclick = () => {
+                img[num].className = "";
+                num--;
+                if (num < 0){
+                    num = span.idx === 0 ? img.length - 1 :0
+                }
+                img[num].className = "on";
+            };
+            </script>
+</body>
+</html>

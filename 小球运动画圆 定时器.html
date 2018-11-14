@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body, p, ul, li, ol, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #box{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            border: 1px solid black;
+        }
+        #wrap{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            background-color: pink;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id = "box">
+        <div id="wrap"></div>
+
+    </div>
+    <button id="start">开始</button>
+    <button id="end">停止</button>
+</body>
+<script>
+    let deg = 0;
+    let r = 100;
+    let {PI,cos,sin} = Math;
+    function fn() {
+        //1 rad = PI / 180 deg
+        let rad = PI / 180 * deg;
+
+        let top = r - r * sin(rad);
+        let left = r + r * cos(rad);
+
+        //获取css样式
+        let wrap = document.getElementById("wrap");
+        wrap.style.top = top - 5 + "px";
+        wrap.style.left = left - 5 + "px";
+        deg += 1;
+    }
+    //用定时器来做
+    //setInterval() 周期性定时器
+    //setTimeout() 一次性定时器
+
+    /*setInterval(fn,20); //20ms*/
+    let timer = null;
+    start.onclick = () => {
+       timer = setInterval(fn,10);
+    };
+    end.onclick = () => {
+        clearInterval(timer);
+    };
+</script>
+</html>

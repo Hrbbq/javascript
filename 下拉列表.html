@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body, p, ul, li, ol, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        ul{
+            width: 200px;
+            margin: 50px;
+        }
+        li{
+            margin: 1px;
+            height: 40px;
+            overflow: hidden;
+        }
+        li.show{
+            height: auto;
+        }
+        h3{
+            line-height: 40px;
+            text-align: center;
+            background-color: pink;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        div{
+            height: 24px;
+        }
+        span{
+            margin-left: 20px;
+        }
+        input{
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <h3>LIST1</h3>
+            <div>
+                <span>1</span>
+                <input type="button" value="修改">
+            </div>
+            <div>
+                <span>1</span>
+                <input type="button" value="修改">
+            </div>
+            <div>
+                <span>1</span>
+                <input type="button" value="修改">
+            </div>
+            <div>
+                <span>1</span>
+                <input type="button" value="修改">
+            </div>
+        </li>
+        <li>
+            <h3>LIST2</h3>
+            <div>
+                <span>1</span>
+                <input type="button" value="修改">
+            </div>
+            <div>
+                <span>1</span>
+                <input type="button" value="修改">
+            </div>
+            <div>
+                <span>1</span>
+                <input type="button" value="修改">
+            </div>
+            <div>
+                <span>1</span>
+                <input type="button" value="修改">
+            </div>
+        </li>
+        <li>
+            <h3>LIST3</h3>
+            <div>
+                <span>1</span>
+                <input type="button" value="修改">
+            </div>
+            <div>
+                <span>1</span>
+                <input type="button" value="修改">
+            </div>
+            <div>
+                <span>1</span>
+                <input type="button" value="修改">
+            </div>
+            <div>
+                <span>1</span>
+                <input type="button" value="修改">
+            </div>
+        </li>
+    </ul>
+    <script>
+        let ul = document.getElementsByTagName("ul")[0];
+        let list = ul.getElementsByTagName("li");
+        let head = ul.getElementsByTagName("h3");
+        let span = ul.getElementsByTagName("span");
+        let btn = ul.getElementsByTagName("input");
+
+
+        //第一种
+        /*for (let i = 0 ; i < head.length ; i++){
+            head[i].mark = false;//初始状态，所有的关闭状态
+            head[i].onclick = function () {
+                if (head[i].mark){//关闭
+                    list[i].className = "";
+                }else{//展开
+                    for (let j = 0 ; j < list.length ; j++) {
+                    list[j].className = "";
+                    head[j].mark = false;
+                    }
+                    list[i].className = "show";
+                }
+                head[i].mark = ! head[i].mark;
+
+            }
+        }*/
+
+        //第二种
+        let lastIndex = -1;
+        for (let i = 0 ; i < head.length ; i++){
+            head[i].onclick = function () {
+                if (lastIndex !== -1){
+                    list[lastIndex].className = "";
+                    if (lastIndex === i){
+                        lastIndex = -1;
+                        return;
+                    }
+                }
+                list[i].className = "show";
+                lastIndex = i;
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

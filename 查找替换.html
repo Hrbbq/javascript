@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body, p, ul, li, ol, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="匹配项">
+    <button>查找</button>
+    <input type="text" placeholder="替换项">
+    <button>替换</button>
+    <p>医生，掌握医药卫生知识，从事疾病预防和治疗的专业人员的统称。医生，古代称大夫或郎中。现在“大夫”一词在北方人中也常用。在欧美医生普遍被称为“Physician”，只有外科医生被称呼为“Surgeon”。自中世纪后人们普遍认为“内科学”=“医学”=“内科医生”=“医生Physician”。而外科医生的工作是美容和理发，只作为医疗补助工作存在，可是随着时代前进外科医生和药剂师都逐渐开始独自进行治疗，他们也变得被看作医生。外科医生的法语称呼为：Decin(Medusan)，德语是：Arzt(arutsuto)。但在英联邦英国外科医生，今天还以“密司脱”称呼。</p>
+</body>
+<script>
+    (function () {
+        let p = document.getElementsByTagName("p")[0];
+        let btn = document.getElementsByTagName("button");
+        let input = document.getElementsByTagName("input");
+        let txt = p.innerHTML;
+        btn[0].onclick = function () {
+            let value = input[0].value.trim();
+            if (value){
+                p.innerHTML = txt.split(value).join(`<span>${value}</span>`)
+            }
+        }
+
+        btn[1].onclick = function () {
+            let value1 = input[0].value.trim();
+            let value2 = input[1].value.trim();
+            if (value1){
+                p.innerHTML = txt.split(value1).join(`<span>${value2}</span>`)
+            }
+        }
+    })()
+</script>
+</html>

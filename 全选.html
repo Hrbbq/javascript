@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body, p, ul, li, ol, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #wrap{
+            width: 200px;
+            margin: 40px;
+            border: 1px dashed #ddd;
+        }
+        ul li{
+            height: 50px ;
+            line-height: 50px;
+            border-bottom: 1px dashed #ddd;
+        }
+        ul li span{
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin: 15px 0 0 15px;
+            border: 1px solid #fdd;
+        }
+        span.active{
+            background-color: #fdd;
+        }
+        button{
+            background-color: #fff;
+        }
+        button.active{
+            background-color: #fdd;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul>
+            <li><span></span>第一种</li>
+            <li><span></span>第二种</li>
+            <li><span></span>第三种</li>
+            <li><span></span>4</li>
+            <li><span></span>5</li>
+            <li><span></span>6</li>
+            <li><span></span>7</li>
+            <li><span></span>8</li>
+            <li><span></span>9</li>
+
+        </ul>
+    </div>
+    <div class="box">
+        <button>全选</button>
+        <button class = "active">全不选</button>
+        <button>反选</button>
+    </div>
+</body>
+<script>
+    let li = document.getElementsByTagName("li");
+    let span = document.getElementsByTagName("span");
+    let btn = document.getElementsByTagName("button");
+    let num = 0;
+    let len = li.length;
+    let numList = function (num) {
+        switch (num) {
+            case len:
+                btn[0].classList.add("active");
+                btn[1].classList.remove("active");
+                break;
+            case 0:
+                btn[0].classList.remove("active");
+                btn[1].classList.add("active");
+                break;
+            default:
+                btn[0].classList.remove("active");
+                btn[1].classList.remove("active");
+                break;
+        }
+    }
+    for (let i = 0 ; i < len ; i++) {
+        span[i].mark = false;
+        li[i].onclick = function () {
+            if (span[i].mark) {
+                num --;
+            }else{
+                num ++;
+            }
+            span[i].mark = !span[i].mark;
+            span[i].classList.toggle("active");
+            console.log(num);
+           numList(num);
+        }
+    }
+    //全选
+    btn[0].onclick = function () {
+        for (let i = 0; i < len; i++){
+            span[i].classList.add("active");
+            span[i].mark = true;
+        }
+        num = len;
+        numList(num);
+    }
+    //全不选
+    btn[1].onclick = function () {
+        for (let i = 0; i < len; i++){
+            span[i].classList.remove("active");
+            span[i].mark = false;
+        }
+        num = 0;
+        numList(num);
+    }
+    //反选
+    btn[2].onclick = function () {
+        for (let i = 0; i < len; i++){
+            if (span[i].mark) {
+                num++;
+            }else{
+                num--;
+            }
+            span[i].classList.toggle("active");
+            span[i].mark = false;
+        }
+    }
+
+</script>
+</html>

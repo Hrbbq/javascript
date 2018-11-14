@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body, p, ul, li, ol, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<script>
+    let arr = [1,2,3,4,2,2,2,2,4,5,7,1,8,9,6];
+    let item = 2;
+   /* {
+        let indexOf = (arr,item) =>{
+        for (let i= 0 ; i < len; i++){
+            if (arr[i] === item){
+                return i;
+            }
+        }
+        return -1;
+    }
+        console.log(indexOf(arr,3));
+    }*/
+    /*{
+        function add(arr) {
+            let res = 0;
+            arr.forEach(v => res += v);
+            return res;
+        }
+    }
+    console.log(add(arr));*/
+
+
+   /* let newArr = arr.filter(v => v !== 2);
+    console.log(newArr);*/
+
+/*//删除数组里的元素
+   function map(arr,item) {
+       for (let i = arr.length-1; i >=0 ; i--){
+           if (arr[i] === item){
+               arr.splice(i,1)
+           }
+       }
+   }
+   map(arr,item);
+   console.log(arr);*/
+
+/*arr.map((v,i,self) => {
+    if (v === item){
+        self.splice(i,1)
+    }
+    }
+
+)
+    console.log(arr);*/
+    /*// 不改变原数组的情况在末尾添加4
+
+    {
+        let arr = [1, 2, 3];
+        let item = 4;
+        function push(arr, item) {
+            let newArr = [...arr];
+            newArr.push(item);
+            return newArr;
+        }
+
+        console.log( push(arr, item))
+    }*/
+
+   /* {
+        let arr = [1, 2, 3];
+        let newArr = [...arr, 4];
+        console.log(newArr);
+    }*/
+
+
+   /*//合并数组
+    let arr1 = [1, 2, 3];
+    let arr2 = [4, 5, 6];
+    let arr3 = [].concat(arr1, arr2);
+    console.log(arr3);*/
+</script>
+</body>
+</html>
